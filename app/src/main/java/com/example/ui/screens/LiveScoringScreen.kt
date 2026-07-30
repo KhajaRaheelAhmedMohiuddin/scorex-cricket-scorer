@@ -385,7 +385,7 @@ fun LiveScoringScreen(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Text(
-                        text = "CRR: ${String.format("%.2f", summary.runRate)}",
+                        text = "CRR: ${String.format(java.util.Locale.US, "%.2f", summary.runRate)}",
                         style = MaterialTheme.typography.labelLarge,
                         color = StadiumGreen,
                         fontWeight = FontWeight.Bold
@@ -400,7 +400,7 @@ fun LiveScoringScreen(
                         val rrr = if (legalBallsRemaining > 0) (runsNeeded.toDouble() / (legalBallsRemaining.toDouble() / 6.0)) else 0.0
 
                         Text(
-                            text = "RRR: ${String.format("%.2f", rrr)}",
+                            text = "RRR: ${String.format(java.util.Locale.US, "%.2f", rrr)}",
                             style = MaterialTheme.typography.labelLarge,
                             color = GoldAccent,
                             fontWeight = FontWeight.Bold

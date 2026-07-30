@@ -38,6 +38,15 @@ android {
       isIncludeAndroidResources = true
     }
   }
+  lint {
+    // Advisory "a newer version exists" nags — not defects; they fire whenever any
+    // dependency publishes an update, so they don't belong in a passing build.
+    disable += setOf("GradleDependency", "NewerVersionAvailable", "AndroidGradlePluginVersion")
+    // Lint misreads these valid WebP launcher icons as having enormous pixel sizes.
+    disable += "IconDipSize"
+    // Flags the auto-generated, gitignored local.properties SDK path — not project code.
+    disable += "PropertyEscape"
+  }
 }
 
 dependencies {

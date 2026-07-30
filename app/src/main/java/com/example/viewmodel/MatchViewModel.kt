@@ -1,6 +1,7 @@
 package com.example.viewmodel
 
 import android.app.Application
+import androidx.core.content.edit
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.data.AppDatabase
@@ -74,7 +75,7 @@ class MatchViewModel(application: Application) : AndroidViewModel(application) {
 
     fun loadTeams() {
         if (!prefs.getBoolean("did_clear_static_defaults_v3", false)) {
-            prefs.edit().clear().putBoolean("did_clear_static_defaults_v3", true).apply()
+            prefs.edit { clear(); putBoolean("did_clear_static_defaults_v3", true) }
         }
         val totalTeams = prefs.getInt("teams_count", 0)
         val list = ArrayList<Team>()
@@ -94,17 +95,17 @@ class MatchViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     private fun saveTeamsList(list: List<Team>) {
-        val editor = prefs.edit()
-        editor.putInt("teams_count", list.size)
-        list.forEachIndexed { i, team ->
-            editor.putString("team_${i}_id", team.id)
-            editor.putString("team_${i}_name", team.name)
-            editor.putInt("team_${i}_played", team.matchesPlayed)
-            editor.putInt("team_${i}_won", team.matchesWon)
-            editor.putInt("team_${i}_lost", team.matchesLost)
-            editor.putString("team_${i}_roster", team.roster.joinToString(","))
+        prefs.edit {
+            putInt("teams_count", list.size)
+            list.forEachIndexed { i, team ->
+                putString("team_${i}_id", team.id)
+                putString("team_${i}_name", team.name)
+                putInt("team_${i}_played", team.matchesPlayed)
+                putInt("team_${i}_won", team.matchesWon)
+                putInt("team_${i}_lost", team.matchesLost)
+                putString("team_${i}_roster", team.roster.joinToString(","))
+            }
         }
-        editor.apply()
     }
 
     fun addTeam(name: String, roster: List<String>) {

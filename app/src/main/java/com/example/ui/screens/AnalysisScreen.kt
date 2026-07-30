@@ -331,7 +331,7 @@ fun AnalysisScreen(
                         )
                         Spacer(modifier = Modifier.height(4.dp))
                         Text(
-                            text = String.format("%.2f RPO", inn1Summary.runRate),
+                            text = String.format(java.util.Locale.US, "%.2f RPO", inn1Summary.runRate),
                             fontSize = 18.sp,
                             fontWeight = FontWeight.Black,
                             color = InfoTeal
@@ -362,7 +362,7 @@ fun AnalysisScreen(
                         )
                         Spacer(modifier = Modifier.height(4.dp))
                         Text(
-                            text = if (has2) String.format("%.2f RPO", inn2Summary.runRate) else "NOT STARTED",
+                            text = if (has2) String.format(java.util.Locale.US, "%.2f RPO", inn2Summary.runRate) else "NOT STARTED",
                             fontSize = if (has2) 18.sp else 13.sp,
                             fontWeight = FontWeight.Black,
                             color = if (has2) GoldAccent else DarkTextMuted
@@ -754,8 +754,8 @@ fun RunRateBarCanvas(
         }
 
         // Group runs scored in each over for Innings 1 and 2
-        val overRuns1 = IntArray(totalOvers) { 0 }
-        val overRuns2 = IntArray(totalOvers) { 0 }
+        val overRuns1 = IntArray(totalOvers)
+        val overRuns2 = IntArray(totalOvers)
 
         deliveries.forEach { d ->
             val idx = d.overIndex

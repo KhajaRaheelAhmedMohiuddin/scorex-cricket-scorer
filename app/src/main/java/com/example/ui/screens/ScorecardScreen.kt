@@ -498,7 +498,7 @@ fun ScorecardScreen(
                                 
                                 // Strike rate: dynamic elite stat highlighting
                                 Text(
-                                    text = String.format("%.1f", bat.strikeRate),
+                                    text = String.format(java.util.Locale.US, "%.1f", bat.strikeRate),
                                     modifier = Modifier.weight(0.6f),
                                     style = MaterialTheme.typography.bodySmall.copy(
                                         fontFamily = FontFamily.Monospace,
@@ -630,7 +630,7 @@ fun ScorecardScreen(
                                 
                                 // Economy: dynamic elite stat highlighting under 6.5
                                 Text(
-                                    text = String.format("%.2f", bowl.economy),
+                                    text = String.format(java.util.Locale.US, "%.2f", bowl.economy),
                                     modifier = Modifier.weight(0.6f),
                                     style = MaterialTheme.typography.bodySmall.copy(
                                         fontFamily = FontFamily.Monospace,

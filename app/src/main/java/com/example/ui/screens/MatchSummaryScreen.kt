@@ -499,7 +499,7 @@ fun MatchSummaryScreen(
                                         color = StadiumGreen
                                     )
                                     Text(
-                                        text = "off ${topBatsman.balls} balls (SR: ${String.format("%.1f", topBatsman.strikeRate)})",
+                                        text = "off ${topBatsman.balls} balls (SR: ${String.format(java.util.Locale.US, "%.1f", topBatsman.strikeRate)})",
                                         style = MaterialTheme.typography.bodySmall,
                                         color = MutedGrey,
                                         fontSize = 10.sp
