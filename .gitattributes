@@ -1,0 +1,27 @@
+# Normalize line endings across platforms
+* text=auto
+
+# Scripts that must retain specific line endings
+*.bat            text eol=crlf
+gradlew          text eol=lf
+*.sh             text eol=lf
+
+# Source files
+*.kt             text
+*.kts            text
+*.java           text
+*.xml            text
+*.pro            text
+*.md             text
+*.properties     text
+*.toml           text
+*.json           text
+
+# Binary assets (never touch)
+*.png            binary
+*.webp           binary
+*.jpg            binary
+*.jpeg           binary
+*.jar            binary
+*.keystore       binary
+*.jks            binary
