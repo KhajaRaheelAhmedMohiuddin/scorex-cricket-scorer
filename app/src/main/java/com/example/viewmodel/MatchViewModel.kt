@@ -349,7 +349,7 @@ class MatchViewModel(application: Application) : AndroidViewModel(application) {
             id = dId,
             innings = match.currentInnings,
             overIndex = nextOverIndex,
-            ballNumber = if (extraType == ExtraType.WIDE || extraType == ExtraType.NO_BALL) 0 else nextBallNumber,
+            ballNumber = if (extraType == ExtraType.WIDE || extraType == ExtraType.NO_BALL || (wicket && wicketType == WicketType.RETIRED_HURT)) 0 else nextBallNumber,
             striker = match.strikerName,
             nonStriker = match.nonStrikerName,
             bowler = match.bowlerName,
@@ -441,8 +441,10 @@ class MatchViewModel(application: Application) : AndroidViewModel(application) {
             is BatterState.Out -> "Batsman Out"
         }
 
-        // Check if over completed (which rotates strike, but is resolved post legal over increment)
-        val isLegal = extraType != ExtraType.WIDE && extraType != ExtraType.NO_BALL
+        // Check if over completed (which rotates strike, but is resolved post legal over increment).
+        // A retired-hurt entry is not a delivery, so it never advances the over.
+        val isLegal = extraType != ExtraType.WIDE && extraType != ExtraType.NO_BALL &&
+            !(wicket && wicketType == WicketType.RETIRED_HURT)
         var nextBowler = match.bowlerName
 
         // Calculate if innings finishes on this ball

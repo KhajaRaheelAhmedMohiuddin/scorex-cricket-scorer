@@ -39,7 +39,9 @@ object CricketStatCalculator {
         // 2. Count Legal Balls & Overs
         var legalBalls = 0
         for (d in deliveries) {
-            if (d.extraType != ExtraType.WIDE && d.extraType != ExtraType.NO_BALL) {
+            // A retired-hurt entry is recorded between deliveries, so it is not a ball.
+            val isRetirement = d.wicket && d.wicketType == WicketType.RETIRED_HURT
+            if (!isRetirement && d.extraType != ExtraType.WIDE && d.extraType != ExtraType.NO_BALL) {
                 legalBalls++
             }
         }
@@ -79,10 +81,12 @@ object CricketStatCalculator {
         var runningLegalBalls = 0
 
         for (d in sortedDeliveries) {
-            // Batsman charged ballfaced if not a wide
-            val chargesBall = d.extraType != ExtraType.WIDE
-            val isLegal = d.extraType != ExtraType.WIDE && d.extraType != ExtraType.NO_BALL
-            
+            // A retired-hurt entry is not a delivery: it consumes no ball for anyone.
+            val isRetirement = d.wicket && d.wicketType == WicketType.RETIRED_HURT
+            // Batsman charged ballfaced if not a wide (and not a retirement)
+            val chargesBall = !isRetirement && d.extraType != ExtraType.WIDE
+            val isLegal = !isRetirement && d.extraType != ExtraType.WIDE && d.extraType != ExtraType.NO_BALL
+
             if (isLegal) {
                 runningLegalBalls++
             }
@@ -173,7 +177,7 @@ object CricketStatCalculator {
             // For a complete maiden over, bowler must bowl 6 legal deliveries with 0 runs conceded
             val bowlerForOver = ballsInOver.firstOrNull()?.bowler
             if (bowlerForOver != null) {
-                val legalBallsInOver = ballsInOver.count { it.extraType != ExtraType.WIDE && it.extraType != ExtraType.NO_BALL }
+                val legalBallsInOver = ballsInOver.count { !(it.wicket && it.wicketType == WicketType.RETIRED_HURT) && it.extraType != ExtraType.WIDE && it.extraType != ExtraType.NO_BALL }
                 if (legalBallsInOver >= 6) {
                     val runsInOver = ballsInOver.sumOf { 
                         it.runsBat + (if (it.extraType == ExtraType.WIDE || it.extraType == ExtraType.NO_BALL) it.runsExtra else 0)
@@ -188,8 +192,10 @@ object CricketStatCalculator {
             }
         }
 
-        // Format Recent Balls summary
-        val recentBalls = sortedDeliveries.takeLast(10).map { d ->
+        // Format Recent Balls summary (a retirement is not a ball, so it is not shown)
+        val recentBalls = sortedDeliveries
+            .filter { !(it.wicket && it.wicketType == WicketType.RETIRED_HURT) }
+            .takeLast(10).map { d ->
             when {
                 d.wicket -> "W"
                 d.extraType == ExtraType.WIDE -> "Wd" + (if (d.runsExtra > 1) "+${d.runsExtra - 1}" else "")
