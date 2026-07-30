@@ -16,7 +16,6 @@ import androidx.compose.ui.Modifier
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.ui.screens.DashboardScreen
 import com.example.ui.screens.LiveScoringScreen
-import com.example.ui.screens.MatchSetupScreen
 import com.example.ui.screens.MatchSummaryScreen
 import com.example.ui.screens.ScorecardScreen
 import com.example.ui.theme.DarkBgMain
@@ -43,7 +42,6 @@ class MainActivity : ComponentActivity() {
                             }
                         } else {
                             when (currentScreen) {
-                                is AppScreen.Setup -> viewModel.navigateTo(AppScreen.Dashboard)
                                 is AppScreen.Scoring -> viewModel.navigateTo(AppScreen.Dashboard)
                                 is AppScreen.Summary -> viewModel.navigateTo(AppScreen.Dashboard)
                                 is AppScreen.Scorecard -> {
@@ -78,9 +76,6 @@ class MainActivity : ComponentActivity() {
                         when (currentScreen) {
                             is AppScreen.Dashboard -> {
                                 DashboardScreen(viewModel = viewModel)
-                            }
-                            is AppScreen.Setup -> {
-                                MatchSetupScreen(viewModel = viewModel)
                             }
                             is AppScreen.Scoring -> {
                                 LiveScoringScreen(viewModel = viewModel)

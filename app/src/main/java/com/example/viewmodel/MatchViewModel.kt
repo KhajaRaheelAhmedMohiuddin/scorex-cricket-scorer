@@ -17,7 +17,6 @@ import java.util.UUID
 
 sealed class AppScreen {
     object Dashboard : AppScreen()
-    object Setup : AppScreen()
     object Scoring : AppScreen()
     object Scorecard : AppScreen()
     object Summary : AppScreen()
@@ -164,16 +163,6 @@ class MatchViewModel(application: Application) : AndroidViewModel(application) {
 
     fun navigateTo(screen: AppScreen) {
         _currentScreen.value = screen
-    }
-
-    fun createNewMatchSetup() {
-        setupTeamA.value = ""
-        setupTeamB.value = ""
-        setupTeamAPlayers.value = ""
-        setupTeamBPlayers.value = ""
-        setupOvers.value = 20
-        setupFormat.value = MatchFormat.T20
-        _currentScreen.value = AppScreen.Setup
     }
 
     fun startNewMatch() {
@@ -603,14 +592,16 @@ class MatchViewModel(application: Application) : AndroidViewModel(application) {
         val match = _activeMatch.value ?: return
         val nextBall = redoStack.removeAt(redoStack.size - 1)
 
-        // Simply play the ball again
+        // Simply play the ball again, preserving fielder and retired-hurt detail
         addLiveDelivery(
             runsBat = nextBall.runsBat,
             runsExtra = nextBall.runsExtra,
             extraType = nextBall.extraType,
             wicket = nextBall.wicket,
             wicketType = nextBall.wicketType,
-            dismissedPlayer = nextBall.dismissedPlayer
+            dismissedPlayer = nextBall.dismissedPlayer,
+            fielder = nextBall.fielder,
+            retiredPlayer = if (nextBall.wicketType == WicketType.RETIRED_HURT) nextBall.dismissedPlayer else null
         )
     }
 
