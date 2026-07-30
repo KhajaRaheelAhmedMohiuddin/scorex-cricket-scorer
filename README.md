@@ -1,6 +1,38 @@
 # ScoreX Cricket Scorer
 
+[![Android CI](https://github.com/KhajaRaheelAhmedMohiuddin/scorex-cricket-scorer/actions/workflows/android-ci.yml/badge.svg)](https://github.com/KhajaRaheelAhmedMohiuddin/scorex-cricket-scorer/actions/workflows/android-ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+![Platform](https://img.shields.io/badge/platform-Android-3DDC84?logo=android&logoColor=white)
+![Min SDK](https://img.shields.io/badge/minSdk-24-brightgreen)
+![Kotlin](https://img.shields.io/badge/Kotlin-2.2-7F52FF?logo=kotlin&logoColor=white)
+![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-Material%203-4285F4?logo=jetpackcompose&logoColor=white)
+
 ScoreX is an offline Android cricket-scoring app built with Kotlin and Jetpack Compose. Record ball-by-ball scoring, extras, wickets, partnerships, scorecards, analytics, match history, and Super Overs without an account or network connection.
+
+## Screenshots
+
+<table>
+  <tr>
+    <td><img src="docs/screenshots/01-match-center.png" width="210" alt="Match Center setup screen"/></td>
+    <td><img src="docs/screenshots/02-live-scoring.png" width="210" alt="Live ball-by-ball scoring"/></td>
+    <td><img src="docs/screenshots/03-scorecard.png" width="210" alt="Full scorecard"/></td>
+  </tr>
+  <tr>
+    <td align="center"><b>Match Center</b></td>
+    <td align="center"><b>Live Scoring</b></td>
+    <td align="center"><b>Scorecard</b></td>
+  </tr>
+  <tr>
+    <td><img src="docs/screenshots/04-analytics.png" width="210" alt="Analytics and run-rate charts"/></td>
+    <td><img src="docs/screenshots/05-super-over-result.png" width="210" alt="Super Over match recap"/></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td align="center"><b>Analytics</b></td>
+    <td align="center"><b>Super Over Recap</b></td>
+    <td></td>
+  </tr>
+</table>
 
 ## Features
 
@@ -12,6 +44,14 @@ ScoreX is an offline Android cricket-scoring app built with Kotlin and Jetpack C
 - Undo and redo support for the current innings
 - Super Over scoring for tied matches
 
+## Tech stack
+
+- **Language:** Kotlin
+- **UI:** Jetpack Compose (Material 3)
+- **Architecture:** MVVM with `AndroidViewModel` and Kotlin `StateFlow`
+- **Persistence:** Room (with Moshi for delivery serialization)
+- **Build:** Gradle Kotlin DSL with a version catalog
+
 ## Requirements
 
 - Android Studio with Android SDK Platform 36 installed
@@ -21,12 +61,15 @@ ScoreX is an offline Android cricket-scoring app built with Kotlin and Jetpack C
 
 The Gradle wrapper is included, so no system Gradle installation is required.
 
-```powershell
-.\gradlew.bat assembleDebug
-.\gradlew.bat testDebugUnitTest
+```bash
+./gradlew assembleDebug        # build the debug APK
+./gradlew testDebugUnitTest    # run the unit / Robolectric / Compose UI tests
+./gradlew lintDebug            # static analysis
 ```
 
-The debug APK is written to `app/build/outputs/apk/debug/app-debug.apk`.
+On Windows, use `gradlew.bat` instead of `./gradlew`. The debug APK is written to `app/build/outputs/apk/debug/app-debug.apk`.
+
+The project ships with **63 automated tests** covering the scoring engine, the match-state ViewModel (via Robolectric), the Super Over flow, dismissals, and the dashboard UI. Every push and pull request is built and tested by [GitHub Actions](.github/workflows/android-ci.yml).
 
 ## Run
 
