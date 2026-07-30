@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="docs/scorex-logo.png" width="360" alt="ScoreX logo"/>
+</p>
+
 # ScoreX Cricket Scorer
 
 [![Android CI](https://github.com/KhajaRaheelAhmedMohiuddin/scorex-cricket-scorer/actions/workflows/android-ci.yml/badge.svg)](https://github.com/KhajaRaheelAhmedMohiuddin/scorex-cricket-scorer/actions/workflows/android-ci.yml)

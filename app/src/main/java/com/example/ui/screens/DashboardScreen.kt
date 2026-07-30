@@ -2,6 +2,7 @@ package com.example.ui.screens
 
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Canvas
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -45,6 +46,9 @@ import androidx.compose.ui.window.DialogProperties
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.text.input.ImeAction
+import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.res.painterResource
+import com.example.R
 import com.example.model.MatchFormat
 import com.example.model.Team
 import com.example.data.MatchEntity
@@ -267,32 +271,14 @@ fun QuickSetupTab(viewModel: MatchViewModel) {
                 .fillMaxWidth()
                 .padding(start = 16.dp, end = 16.dp, top = 16.dp)
         ) {
-            // Large Editorial Header with Cricbuzz Brand Accent
-            Row(
-                verticalAlignment = Alignment.CenterVertically,
-                horizontalArrangement = Arrangement.spacedBy(8.dp)
-            ) {
-                Box(
-                    modifier = Modifier
-                        .clip(RoundedCornerShape(4.dp))
-                        .background(StadiumGreen)
-                        .padding(horizontal = 6.dp, vertical = 2.dp)
-                ) {
-                    Text(
-                        text = "PRO",
-                        fontSize = 10.sp,
-                        fontWeight = FontWeight.Black,
-                        color = DarkBgMain
-                    )
-                }
-                Text(
-                    text = "SCOREX - CRICKET SCORER",
-                    style = MaterialTheme.typography.titleSmall,
-                    color = StadiumGreen,
-                    fontWeight = FontWeight.ExtraBold,
-                    letterSpacing = 3.sp
-                )
-            }
+            // Brand logo lockup
+            Image(
+                painter = painterResource(id = R.drawable.scorex_logo),
+                contentDescription = "ScoreX",
+                contentScale = ContentScale.Fit,
+                modifier = Modifier.height(36.dp)
+            )
+            Spacer(modifier = Modifier.height(6.dp))
             Text(
                 text = "MATCH CENTER",
                 style = MaterialTheme.typography.displayMedium,
