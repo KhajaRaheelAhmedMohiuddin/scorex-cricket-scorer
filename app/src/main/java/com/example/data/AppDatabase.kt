@@ -28,5 +28,15 @@ abstract class AppDatabase : RoomDatabase() {
                 instance
             }
         }
+
+        /**
+         * Test-only hook: lets unit tests supply an in-memory database so the
+         * ViewModel exercises real Room persistence without touching disk.
+         * Not used by production code.
+         */
+        @androidx.annotation.VisibleForTesting
+        fun setInstanceForTesting(db: AppDatabase?) {
+            INSTANCE = db
+        }
     }
 }
