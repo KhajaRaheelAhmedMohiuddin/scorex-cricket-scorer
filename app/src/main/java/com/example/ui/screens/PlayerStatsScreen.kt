@@ -597,7 +597,7 @@ fun StatCard(label: String, value: String) {
         ) {
             Text(
                 text = label,
-                color = Color(0xFF757575), // Modern neutral grey for label
+                color = MutedGrey2, // Modern neutral grey for label
                 fontSize = 11.sp,
                 fontWeight = FontWeight.Bold,
                 maxLines = 1,
@@ -607,7 +607,7 @@ fun StatCard(label: String, value: String) {
             Spacer(modifier = Modifier.height(4.dp))
             Text(
                 text = value,
-                color = Color(0xFF212121), // Bold dark color for values
+                color = DarkBgMain, // Bold dark color for values
                 fontSize = 16.sp,
                 fontWeight = FontWeight.ExtraBold,
                 textAlign = TextAlign.Center

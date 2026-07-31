@@ -102,7 +102,7 @@ fun DashboardScreen(
                         Box(
                             modifier = Modifier
                                 .clip(RoundedCornerShape(12.dp))
-                                .background(if (tab0Selected) Color(0x1F00FF87) else Color.Transparent)
+                                .background(if (tab0Selected) StadiumGreen.copy(alpha = 0.12f) else Color.Transparent)
                                 .padding(horizontal = 14.dp, vertical = 2.dp),
                             contentAlignment = Alignment.Center
                         ) {
@@ -142,7 +142,7 @@ fun DashboardScreen(
                         Box(
                             modifier = Modifier
                                 .clip(RoundedCornerShape(12.dp))
-                                .background(if (tab1Selected) Color(0x1F00E5FF) else Color.Transparent)
+                                .background(if (tab1Selected) InfoTeal.copy(alpha = 0.12f) else Color.Transparent)
                                 .padding(horizontal = 14.dp, vertical = 2.dp),
                             contentAlignment = Alignment.Center
                         ) {
@@ -182,7 +182,7 @@ fun DashboardScreen(
                         Box(
                             modifier = Modifier
                                 .clip(RoundedCornerShape(12.dp))
-                                .background(if (tab2Selected) Color(0x1FFFC107) else Color.Transparent)
+                                .background(if (tab2Selected) GoldAccent.copy(alpha = 0.12f) else Color.Transparent)
                                 .padding(horizontal = 14.dp, vertical = 2.dp),
                             contentAlignment = Alignment.Center
                         ) {
@@ -380,7 +380,7 @@ fun QuickSetupTab(viewModel: MatchViewModel) {
                         modifier = Modifier
                             .fillMaxWidth()
                             .testTag("host_team_input")
-                            .background(Color(0xFF0B1420), RoundedCornerShape(10.dp))
+                            .background(InputBg, RoundedCornerShape(10.dp))
                             .border(2.dp, StadiumGreen, RoundedCornerShape(10.dp)),
                         shape = RoundedCornerShape(10.dp),
                         singleLine = true
@@ -445,8 +445,8 @@ fun QuickSetupTab(viewModel: MatchViewModel) {
                             unfocusedTextColor = CoolSlate,
                             focusedBorderColor = GlassBorder,
                             unfocusedBorderColor = GlassBorder,
-                            focusedContainerColor = Color(0xFF0B1420).copy(alpha = 0.5f),
-                            unfocusedContainerColor = Color(0xFF0B1420).copy(alpha = 0.3f)
+                            focusedContainerColor = InputBg.copy(alpha = 0.5f),
+                            unfocusedContainerColor = InputBg.copy(alpha = 0.3f)
                         ),
                         leadingIcon = {
                             Icon(
@@ -510,7 +510,7 @@ fun QuickSetupTab(viewModel: MatchViewModel) {
                         modifier = Modifier
                             .fillMaxWidth()
                             .testTag("visitor_team_input")
-                            .background(Color(0xFF0B1420), RoundedCornerShape(10.dp))
+                            .background(InputBg, RoundedCornerShape(10.dp))
                             .border(2.dp, InfoTeal, RoundedCornerShape(10.dp)),
                         shape = RoundedCornerShape(10.dp),
                         singleLine = true
@@ -575,8 +575,8 @@ fun QuickSetupTab(viewModel: MatchViewModel) {
                             unfocusedTextColor = CoolSlate,
                             focusedBorderColor = GlassBorder,
                             unfocusedBorderColor = GlassBorder,
-                            focusedContainerColor = Color(0xFF0B1420).copy(alpha = 0.5f),
-                            unfocusedContainerColor = Color(0xFF0B1420).copy(alpha = 0.3f)
+                            focusedContainerColor = InputBg.copy(alpha = 0.5f),
+                            unfocusedContainerColor = InputBg.copy(alpha = 0.3f)
                         ),
                         leadingIcon = {
                             Icon(
@@ -622,8 +622,8 @@ fun QuickSetupTab(viewModel: MatchViewModel) {
                         val selHost = tossWonHost
                         Surface(
                             shape = RoundedCornerShape(10.dp),
-                            color = if (selHost) InfoTeal else Color(0xFF111C2B),
-                            border = if (selHost) null else BorderStroke(1.dp, Color(0xFF1D2C3F)),
+                            color = if (selHost) InfoTeal else SurfaceMuted,
+                            border = if (selHost) null else BorderStroke(1.dp, HairlineBorder),
                             modifier = Modifier
                                 .weight(1f)
                                 .fillMaxHeight()
@@ -636,7 +636,7 @@ fun QuickSetupTab(viewModel: MatchViewModel) {
                             ) {
                                 Text(
                                     text = if (teamA.isNotEmpty()) teamA.uppercase() else "HOST",
-                                    color = if (selHost) DarkBgMain else Color(0xFF7E8F9F),
+                                    color = if (selHost) DarkBgMain else MutedGrey2,
                                     fontWeight = FontWeight.ExtraBold,
                                     style = MaterialTheme.typography.bodyMedium,
                                     textAlign = TextAlign.Center,
@@ -649,8 +649,8 @@ fun QuickSetupTab(viewModel: MatchViewModel) {
                         val selVisitor = !tossWonHost
                         Surface(
                             shape = RoundedCornerShape(10.dp),
-                            color = if (selVisitor) InfoTeal else Color(0xFF111C2B),
-                            border = if (selVisitor) null else BorderStroke(1.dp, Color(0xFF1D2C3F)),
+                            color = if (selVisitor) InfoTeal else SurfaceMuted,
+                            border = if (selVisitor) null else BorderStroke(1.dp, HairlineBorder),
                             modifier = Modifier
                                 .weight(1f)
                                 .fillMaxHeight()
@@ -663,7 +663,7 @@ fun QuickSetupTab(viewModel: MatchViewModel) {
                             ) {
                                 Text(
                                     text = if (teamB.isNotEmpty()) teamB.uppercase() else "VISITOR",
-                                    color = if (selVisitor) DarkBgMain else Color(0xFF7E8F9F),
+                                    color = if (selVisitor) DarkBgMain else MutedGrey2,
                                     fontWeight = FontWeight.ExtraBold,
                                     style = MaterialTheme.typography.bodyMedium,
                                     textAlign = TextAlign.Center,
@@ -686,8 +686,8 @@ fun QuickSetupTab(viewModel: MatchViewModel) {
                         val optBat = optedToBat
                         Surface(
                             shape = RoundedCornerShape(10.dp),
-                            color = if (optBat) StadiumGreen else Color(0xFF111C2B),
-                            border = if (optBat) null else BorderStroke(1.dp, Color(0xFF1D2C3F)),
+                            color = if (optBat) StadiumGreen else SurfaceMuted,
+                            border = if (optBat) null else BorderStroke(1.dp, HairlineBorder),
                             modifier = Modifier
                                 .weight(1f)
                                 .clickable { viewModel.setupOptedToBat.value = true }
@@ -695,7 +695,7 @@ fun QuickSetupTab(viewModel: MatchViewModel) {
                         ) {
                             Text(
                                 text = "BAT",
-                                color = if (optBat) DarkBgMain else Color(0xFF7E8F9F),
+                                color = if (optBat) DarkBgMain else MutedGrey2,
                                 fontWeight = FontWeight.ExtraBold,
                                 style = MaterialTheme.typography.bodyMedium,
                                 textAlign = TextAlign.Center,
@@ -707,8 +707,8 @@ fun QuickSetupTab(viewModel: MatchViewModel) {
                         val optBowl = !optedToBat
                         Surface(
                             shape = RoundedCornerShape(10.dp),
-                            color = if (optBowl) StadiumGreen else Color(0xFF111C2B),
-                            border = if (optBowl) null else BorderStroke(1.dp, Color(0xFF1D2C3F)),
+                            color = if (optBowl) StadiumGreen else SurfaceMuted,
+                            border = if (optBowl) null else BorderStroke(1.dp, HairlineBorder),
                             modifier = Modifier
                                 .weight(1f)
                                 .clickable { viewModel.setupOptedToBat.value = false }
@@ -716,7 +716,7 @@ fun QuickSetupTab(viewModel: MatchViewModel) {
                         ) {
                             Text(
                                 text = "BOWL",
-                                color = if (optBowl) DarkBgMain else Color(0xFF7E8F9F),
+                                color = if (optBowl) DarkBgMain else MutedGrey2,
                                 fontWeight = FontWeight.ExtraBold,
                                 style = MaterialTheme.typography.bodyMedium,
                                 textAlign = TextAlign.Center,
@@ -755,9 +755,9 @@ fun QuickSetupTab(viewModel: MatchViewModel) {
                 ) {
                     totalFormats.forEach { fmt ->
                         val sel = format == fmt
-                        val bg = if (sel) GoldAccent else Color(0xFF111C2B)
-                        val borderStroke = if (sel) null else BorderStroke(1.dp, Color(0xFF1D2C3F))
-                        val textClr = if (sel) DarkBgMain else Color(0xFF7E8F9F)
+                        val bg = if (sel) GoldAccent else SurfaceMuted
+                        val borderStroke = if (sel) null else BorderStroke(1.dp, HairlineBorder)
+                        val textClr = if (sel) DarkBgMain else MutedGrey2
 
                         Box(
                             modifier = Modifier
@@ -1568,7 +1568,7 @@ fun HistoryItemCard(
 ) {
     val isLive = match.status == "LIVE"
     val bColor = if (isLive) StadiumGreen.copy(alpha = 0.4f) else GlassBorder
-    val bg = if (isLive) Color(0x1F00FF87) else DarkBgGlass
+    val bg = if (isLive) StadiumGreen.copy(alpha = 0.12f) else DarkBgGlass
 
     val sdf = SimpleDateFormat("MMM dd, yyyy - hh:mm a", Locale.getDefault())
     val dateStr = sdf.format(Date(match.timestamp))
@@ -1635,7 +1635,7 @@ fun HistoryItemCard(
                 }
 
                 Surface(
-                    color = if (isLive) Color(0x3300FF87) else Color(0x1F94A3B8),
+                    color = if (isLive) StadiumGreen.copy(alpha = 0.20f) else MutedGrey.copy(alpha = 0.12f),
                     shape = RoundedCornerShape(4.dp),
                     modifier = Modifier.align(Alignment.TopEnd)
                 ) {
@@ -1788,8 +1788,8 @@ fun CustomModernOversSlider(
                             .fillMaxWidth()
                             .height(20.dp)
                             .clip(RoundedCornerShape(10.dp))
-                            .background(Color(0xFF0F1822))
-                            .border(BorderStroke(1.dp, Color(0xFF1D2C3F)), RoundedCornerShape(10.dp))
+                            .background(DarkBgMain)
+                            .border(BorderStroke(1.dp, HairlineBorder), RoundedCornerShape(10.dp))
                     ) {
                         // Active Track (clipped to its bounds so diagonal stripes don't bleed out into the inactive region)
                         if (normalizedValue > 0f) {
@@ -1806,7 +1806,7 @@ fun CustomModernOversSlider(
                                     // Stripes
                                     val stripeSpacing = 12.dp.toPx()
                                     val strokeWidth = 3.dp.toPx()
-                                    val stripeColor = Color(0xFF23BE68) // Slightly brighter sports green
+                                    val stripeColor = StadiumGreen // Slightly brighter sports green
                                     
                                     var x = -size.height
                                     while (x < size.width) {
@@ -1850,14 +1850,14 @@ fun CustomModernOversSlider(
                     Text(
                         text = "${range.start}",
                         style = MaterialTheme.typography.bodySmall,
-                        color = Color(0xFF4B5E70),
+                        color = DarkTextMuted,
                         fontWeight = FontWeight.Bold,
                         fontSize = 11.sp
                     )
                     Text(
                         text = "${range.endInclusive}",
                         style = MaterialTheme.typography.bodySmall,
-                        color = Color(0xFF4B5E70),
+                        color = DarkTextMuted,
                         fontWeight = FontWeight.Bold,
                         fontSize = 11.sp
                     )
@@ -1896,7 +1896,7 @@ fun SlideToStartButton(
                 modifier = Modifier
                     .fillMaxHeight()
                     .width(with(LocalDensity.current) { swipeOffset.value.toDp() })
-                    .background(Color(0xFF0F1822))
+                    .background(DarkBgMain)
             )
         }
 
@@ -1955,7 +1955,7 @@ fun SlideToStartButton(
                 .offset(x = with(LocalDensity.current) { swipeOffset.value.toDp() })
                 .width(thumbWidth)
                 .fillMaxHeight()
-                .background(Color(0xFF0B141C))
+                .background(DarkBgMain)
                 .then(dragModifier)
         ) {
             // Icon: Chevron right

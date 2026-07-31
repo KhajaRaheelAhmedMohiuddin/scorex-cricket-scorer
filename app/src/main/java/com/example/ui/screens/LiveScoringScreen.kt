@@ -419,7 +419,7 @@ fun LiveScoringScreen(
                     Spacer(modifier = Modifier.height(10.dp))
                     Box(
                         modifier = Modifier
-                            .background(Color(0x24FFFF00), RoundedCornerShape(8.dp))
+                            .background(GoldAccent.copy(alpha = 0.14f), RoundedCornerShape(8.dp))
                             .border(0.5.dp, GoldAccent.copy(alpha = 0.5f), RoundedCornerShape(8.dp))
                             .padding(horizontal = 14.dp, vertical = 6.dp)
                     ) {
@@ -2022,7 +2022,7 @@ fun LiveScoringScreen(
                                     modifier = Modifier
                                         .fillMaxWidth()
                                         .clip(RoundedCornerShape(8.dp))
-                                        .background(if (current) Color(0x3B00E5FF) else Color.Transparent)
+                                        .background(if (current) InfoTeal.copy(alpha = 0.23f) else Color.Transparent)
                                         .clickable {
                                             viewModel.changeActiveBowler(bowler)
                                             showBowlerDialog = false
@@ -2109,7 +2109,7 @@ fun LiveScoringScreen(
                                     modifier = Modifier
                                         .fillMaxWidth()
                                         .clip(RoundedCornerShape(8.dp))
-                                        .background(if (current) Color(0x3B00FF87) else Color.Transparent)
+                                        .background(if (current) StadiumGreen.copy(alpha = 0.23f) else Color.Transparent)
                                         .clickable {
                                             viewModel.changeActiveStriker(batsman)
                                             showStrikerDialog = false
@@ -2196,7 +2196,7 @@ fun LiveScoringScreen(
                                     modifier = Modifier
                                         .fillMaxWidth()
                                         .clip(RoundedCornerShape(8.dp))
-                                        .background(if (current) Color(0x1FFFFFFF) else Color.Transparent)
+                                        .background(if (current) Color.White.copy(alpha = 0.12f) else Color.Transparent)
                                         .clickable {
                                             viewModel.changeActiveNonStriker(batsman)
                                             showNonStrikerDialog = false
@@ -2235,14 +2235,14 @@ fun CricketBatIcon(modifier: Modifier = Modifier) {
             val handleWidth = w * 0.15f
             val handleHeight = h * 0.35f
             drawRect(
-                color = Color(0xFFE0E0E0),
+                color = CoolSlate,
                 topLeft = androidx.compose.ui.geometry.Offset((w - handleWidth) / 2f, 0f),
                 size = androidx.compose.ui.geometry.Size(handleWidth, handleHeight)
             )
             val bladeWidth = w * 0.35f
             val bladeHeight = h * 0.6f
             drawRoundRect(
-                color = Color(0xFFE5A65D), // Nice wood gold-brown
+                color = BatWood, // Nice wood gold-brown
                 topLeft = androidx.compose.ui.geometry.Offset((w - bladeWidth) / 2f, handleHeight),
                 size = androidx.compose.ui.geometry.Size(bladeWidth, bladeHeight),
                 cornerRadius = androidx.compose.ui.geometry.CornerRadius(1.5.dp.toPx(), 1.5.dp.toPx())
@@ -2257,7 +2257,7 @@ fun CricketBallIcon(modifier: Modifier = Modifier) {
         val radius = size.minDimension / 2
         // Background - vibrant red cricket ball
         drawCircle(
-            color = Color(0xFFE53935),
+            color = WicketCrimson,
             radius = radius
         )
         // Draw seam (vertical white arc in the center)

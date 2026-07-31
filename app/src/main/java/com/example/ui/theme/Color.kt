@@ -2,27 +2,37 @@ package com.example.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-// Authentic Cricbuzz Premium Dark Athletic Scheme
-val DarkBgMain = Color(0xFF0C1621)      // Cricbuzz Signature Sports-Navy Dark Background
-val DarkBgSurface = Color(0xFF162534)   // Clean medium-contrast tactical navy for panels
-val DarkBgGlass = Color(0x3D162534)     // Frosted premium glass with 24% opacity
-val OuterSpace = Color(0xFF223548)      // Richer highlight surface for select cards/headers
+// ScoreX palette — an original scheme anchored on the app logo:
+// ink-navy backdrop, silver/white wordmark, and a signal red from the "X".
 
-// High-Stakes Stadium Accents
-val StadiumGreen = Color(0xFF00A352)    // Exact iconic Cricbuzz Sports Green
-val WicketCrimson = Color(0xFFF44336)   // Vivid referee-red for wickets and out events
-val GoldAccent = Color(0xFFFFD100)      // Sleek cricket-gold for highlights, partnership, and live indicators
-val InfoTeal = Color(0xFF00B0FF)        // Deep aqua-cyan for detailed analytical statistics
+// Ink-navy backgrounds
+val DarkBgMain = Color(0xFF0A1524)      // app background
+val DarkBgSurface = Color(0xFF13202F)   // panels / cards
+val DarkBgGlass = Color(0x3D13202F)     // frosted glass surface (~24% opacity)
+val OuterSpace = Color(0xFF203247)      // elevated surface for select cards/headers
 
-// Text Gradients & Mutes
-val CleanWhite = Color(0xFFF8FAFC)      // Crisp athletic soft-white
-val CoolSlate = Color(0xFFE2E8F0)       // Bright light gray for key content
-val MutedGrey = Color(0xFF94A3B8)       // Muted slate gray for secondary labels
-val DarkTextMuted = Color(0xFF334155)   // Muted outline indicator
+// Accents
+val StadiumGreen = Color(0xFF14B866)    // scoring green — positive actions, runs, run-rate
+val WicketCrimson = Color(0xFFE43C43)   // signal red from the logo "X" — brand, live, wickets
+val GoldAccent = Color(0xFFFFC633)      // highlights, partnerships, live indicators
+val InfoTeal = Color(0xFF37B6F0)        // analytics / secondary information
 
-// Transparent Glass Borders
-val GlassBorder = Color(0x26E2E8F0)     // Soft outline for premium structural layout
-val GlassBorderTeal = Color(0x4000A352) // Iconic Cricbuzz Green border halo
+// Text — silver/white from the wordmark
+val CleanWhite = Color(0xFFF5F8FC)      // primary text
+val CoolSlate = Color(0xFFDCE4EF)       // bright secondary text
+val MutedGrey = Color(0xFF8B9AAE)       // muted labels
+val MutedGrey2 = Color(0xFF7E8F9F)      // dimmer label grey (unselected states)
+val DarkTextMuted = Color(0xFF35485F)   // faint outlines / disabled
+
+// Structural surfaces & borders
+val SurfaceMuted = Color(0xFF111C2B)    // unselected pills / cards
+val InputBg = Color(0xFF0B1420)         // text-field container
+val HairlineBorder = Color(0xFF1C2B3E)  // subtle unselected outline
+val GlassBorder = Color(0x26DCE4EF)     // soft structural outline
+val GlassBorderTeal = Color(0x4014B866) // green border halo
+
+// Illustration
+val BatWood = Color(0xFFE5A65D)         // cricket-bat blade in the drawn icons
 
 fun String.toAbbreviation(): String {
     val trimmed = this.trim()
@@ -50,5 +60,3 @@ fun String.abbreviateTeams(teamA: String, teamB: String): String {
     }
     return result
 }
-
-

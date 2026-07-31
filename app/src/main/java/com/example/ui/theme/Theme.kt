@@ -19,7 +19,7 @@ import androidx.compose.ui.platform.LocalView
 private val EditorialDarkColorScheme = darkColorScheme(
     primary = StadiumGreen,
     onPrimary = DarkBgMain,
-    primaryContainer = Color(0x3300FF87),
+    primaryContainer = StadiumGreen.copy(alpha = 0.20f),
     onPrimaryContainer = StadiumGreen,
     secondary = GoldAccent,
     onSecondary = DarkBgMain,

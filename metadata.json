@@ -1,6 +1,6 @@
 {
   "name": "SCOREX - CRICKET SCORER",
-  "description": "A customized Cricbuzz-themed cricket scorer app featuring real-time ball-by-ball stats, player performance logs, and a sleek sports tracker design.",
+  "description": "An offline cricket scorer featuring real-time ball-by-ball stats, player performance logs, and a sleek dark sports-tracker design.",
   "requestFramePermissions": [],
   "majorCapabilities": []
 }

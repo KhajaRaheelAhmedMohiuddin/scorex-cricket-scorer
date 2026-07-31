@@ -23,6 +23,8 @@ import androidx.compose.ui.unit.dp
 import com.example.R
 import com.example.ui.theme.DarkBgGlass
 import com.example.ui.theme.GlassBorder
+import com.example.ui.theme.InfoTeal
+import com.example.ui.theme.StadiumGreen
 
 @Composable
 fun GlassmorphicCard(
@@ -55,7 +57,7 @@ fun GlassmorphicCard(
 fun GlowBorderGlassmorphicCard(
     modifier: Modifier = Modifier,
     shape: Shape = RoundedCornerShape(20.dp),
-    glowColors: List<Color> = listOf(Color(0xFF00FF87), Color(0xFF00E5FF)),
+    glowColors: List<Color> = listOf(StadiumGreen, InfoTeal),
     elevation: Dp = 12.dp,
     content: @Composable BoxScope.() -> Unit
 ) {
