@@ -17,9 +17,9 @@ ScoreX is an offline Android cricket-scoring app built with Kotlin and Jetpack C
 
 <table>
   <tr>
-    <td><img src="docs/screenshots/match-center.png" width="210" alt="Match Center setup screen"/></td>
-    <td><img src="docs/screenshots/live-scoring.png" width="210" alt="Live ball-by-ball scoring"/></td>
-    <td><img src="docs/screenshots/scorecard.png" width="210" alt="Full scorecard"/></td>
+    <td><img src="docs/screenshots/01-match-center.png" width="210" alt="Match Center setup screen"/></td>
+    <td><img src="docs/screenshots/02-live-scoring.png" width="210" alt="Live ball-by-ball scoring"/></td>
+    <td><img src="docs/screenshots/03-scorecard.png" width="210" alt="Full scorecard"/></td>
   </tr>
   <tr>
     <td align="center"><b>Match Center</b></td>
@@ -27,13 +27,13 @@ ScoreX is an offline Android cricket-scoring app built with Kotlin and Jetpack C
     <td align="center"><b>Scorecard</b></td>
   </tr>
   <tr>
-    <td><img src="docs/screenshots/analytics.png" width="210" alt="Analytics and run-rate charts"/></td>
-    <td><img src="docs/screenshots/super-over.png" width="210" alt="Super Over match recap"/></td>
+    <td><img src="docs/screenshots/04-analytics.png" width="210" alt="Analytics and run-rate charts"/></td>
+    <td><img src="docs/screenshots/05-match-recap.png" width="210" alt="Match recap and winner report"/></td>
     <td></td>
   </tr>
   <tr>
     <td align="center"><b>Analytics</b></td>
-    <td align="center"><b>Super Over Recap</b></td>
+    <td align="center"><b>Match Recap</b></td>
     <td></td>
   </tr>
 </table>
