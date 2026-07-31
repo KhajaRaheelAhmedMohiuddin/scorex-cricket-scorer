@@ -367,7 +367,7 @@ fun LiveScoringScreen(
                         style = MaterialTheme.typography.titleMedium,
                         fontWeight = FontWeight.Bold,
                         color = CoolSlate,
-                        fontFamily = FontFamily.Monospace
+                        fontFamily = Manrope
                     )
                     Text(
                         text = "of ${if (activeMatch.currentInnings >= 3) 1 else activeMatch.selectedOvers}",

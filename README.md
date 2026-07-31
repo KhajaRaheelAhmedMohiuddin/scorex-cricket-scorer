@@ -90,6 +90,10 @@ ScoreX stores match data only on the device. It does not require an API key, acc
 
 Release builds are unsigned by default. Keep your keystore and signing credentials outside the repository, then sign the generated release artifact in Android Studio or your CI pipeline.
 
+## Credits
+
+- Typeface: [Manrope](https://github.com/sharanda/manrope) by Mikhail Sharanda, bundled under the [SIL Open Font License](docs/Manrope-OFL.txt).
+
 ## License
 
 Released under the [MIT License](LICENSE).

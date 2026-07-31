@@ -351,7 +351,7 @@ fun ScorecardScreen(
                         Text(
                             text = "OVERS: ${activeSummary.overs}",
                             style = MaterialTheme.typography.bodySmall.copy(
-                                fontFamily = FontFamily.Monospace,
+                                fontFamily = Manrope,
                                 fontWeight = FontWeight.SemiBold
                             ),
                             color = tabColor
@@ -501,7 +501,7 @@ fun ScorecardScreen(
                                     text = String.format(java.util.Locale.US, "%.1f", bat.strikeRate),
                                     modifier = Modifier.weight(0.6f),
                                     style = MaterialTheme.typography.bodySmall.copy(
-                                        fontFamily = FontFamily.Monospace,
+                                        fontFamily = Manrope,
                                         fontWeight = FontWeight.Bold
                                     ),
                                     color = if (bat.strikeRate >= 140) StadiumGreen else CoolSlate,
@@ -535,7 +535,7 @@ fun ScorecardScreen(
                         Text(
                             text = totExStr,
                             style = MaterialTheme.typography.bodySmall.copy(
-                                fontFamily = FontFamily.Monospace,
+                                fontFamily = Manrope,
                                 fontWeight = FontWeight.Bold
                             ),
                             color = GoldAccent,
@@ -633,7 +633,7 @@ fun ScorecardScreen(
                                     text = String.format(java.util.Locale.US, "%.2f", bowl.economy),
                                     modifier = Modifier.weight(0.6f),
                                     style = MaterialTheme.typography.bodySmall.copy(
-                                        fontFamily = FontFamily.Monospace,
+                                        fontFamily = Manrope,
                                         fontWeight = FontWeight.Bold
                                     ),
                                     color = if (bowl.economy <= 6.5) StadiumGreen else CoolSlate,
@@ -729,7 +729,7 @@ fun ScorecardScreen(
                                     Spacer(modifier = Modifier.width(6.dp))
                                     Text(
                                         text = "$b1Runs($b1Balls)",
-                                        style = MaterialTheme.typography.bodySmall.copy(fontWeight = FontWeight.Bold, fontFamily = FontFamily.Monospace),
+                                        style = MaterialTheme.typography.bodySmall.copy(fontWeight = FontWeight.Bold, fontFamily = Manrope),
                                         color = CoolSlate
                                     )
                                 }
@@ -741,7 +741,7 @@ fun ScorecardScreen(
                                 ) {
                                     Text(
                                         text = "${p.runs}(${p.balls})",
-                                        style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.Bold, fontFamily = FontFamily.Monospace),
+                                        style = MaterialTheme.typography.bodyMedium.copy(fontWeight = FontWeight.Bold, fontFamily = Manrope),
                                         color = GoldAccent
                                     )
                                 }
@@ -754,7 +754,7 @@ fun ScorecardScreen(
                                 ) {
                                     Text(
                                         text = "$b2Runs($b2Balls)",
-                                        style = MaterialTheme.typography.bodySmall.copy(fontWeight = FontWeight.Bold, fontFamily = FontFamily.Monospace),
+                                        style = MaterialTheme.typography.bodySmall.copy(fontWeight = FontWeight.Bold, fontFamily = Manrope),
                                         color = CoolSlate
                                     )
                                     Spacer(modifier = Modifier.width(6.dp))
@@ -869,7 +869,7 @@ fun ScorecardScreen(
                                             text = "${fow.oversAtWicket} ov",
                                             color = MutedGrey,
                                             style = MaterialTheme.typography.bodySmall.copy(
-                                                fontFamily = FontFamily.Monospace,
+                                                fontFamily = Manrope,
                                                 fontWeight = FontWeight.Bold
                                             ),
                                             fontSize = 10.sp
