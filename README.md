@@ -5,6 +5,7 @@
 # ScoreX Cricket Scorer
 
 [![Android CI](https://github.com/KhajaRaheelAhmedMohiuddin/scorex-cricket-scorer/actions/workflows/android-ci.yml/badge.svg)](https://github.com/KhajaRaheelAhmedMohiuddin/scorex-cricket-scorer/actions/workflows/android-ci.yml)
+[![Download APK](https://img.shields.io/badge/download-v1.0.1%20APK-14B866?logo=android&logoColor=white)](https://github.com/KhajaRaheelAhmedMohiuddin/scorex-cricket-scorer/releases/download/v1.0.1/ScoreX-v1.0.1.apk)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 ![Platform](https://img.shields.io/badge/platform-Android-3DDC84?logo=android&logoColor=white)
 ![Min SDK](https://img.shields.io/badge/minSdk-24-brightgreen)
@@ -12,6 +13,12 @@
 ![Jetpack Compose](https://img.shields.io/badge/Jetpack%20Compose-Material%203-4285F4?logo=jetpackcompose&logoColor=white)
 
 ScoreX is an offline Android cricket-scoring app built with Kotlin and Jetpack Compose. Record ball-by-ball scoring, extras, wickets, partnerships, scorecards, analytics, match history, and Super Overs without an account or network connection.
+
+## Download
+
+**[⬇ ScoreX v1.0.1 — Android APK](https://github.com/KhajaRaheelAhmedMohiuddin/scorex-cricket-scorer/releases/download/v1.0.1/ScoreX-v1.0.1.apk)** · requires Android 7.0 (API 24) or newer
+
+Open the link on your device and tap the APK to install, allowing "Install unknown apps" for your browser or file manager when prompted. The build is debug-signed for direct sideloading, so Play Protect will show the usual warning for apps installed outside the Play Store. See all versions on the [releases page](https://github.com/KhajaRaheelAhmedMohiuddin/scorex-cricket-scorer/releases).
 
 ## Screenshots
 
